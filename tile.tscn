@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://ww2pe1g2d5wi"]
+
+[ext_resource type="Script" uid="uid://ctjb230cbh5yj" path="res://tile.gd" id="1_n3f48"]
+
+[node name="tile" type="Sprite2D" unique_id=666450599]
+script = ExtResource("1_n3f48")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1995503714]
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0.5090534, 0.7266968, 0.39134133, 1)

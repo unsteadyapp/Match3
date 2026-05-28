@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://coo0t0toxgsmf"]
+
+[ext_resource type="Script" uid="uid://cbrrq4fj8pn5i" path="res://main.gd" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://ccp516cu0ursv" path="res://grid.tscn" id="2_0xm2m"]
+
+[node name="Main" type="Node" unique_id=1016728764]
+script = ExtResource("1_ig7tw")
+
+[node name="grid" parent="." unique_id=717007513 instance=ExtResource("2_0xm2m")]

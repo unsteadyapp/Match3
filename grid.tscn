@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://ccp516cu0ursv"]
+
+[ext_resource type="Script" uid="uid://bhdmt2rcbj270" path="res://grid.gd" id="1_65i6o"]
+
+[node name="grid" type="CanvasLayer" unique_id=717007513]
+script = ExtResource("1_65i6o")
