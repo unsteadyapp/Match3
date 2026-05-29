@@ -29,29 +29,33 @@ func moveOneElement(array:Array,og:Array,offset:Array) -> Array:
 	return newArray
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	var newGrid = AutoLoad.grid.duplicate_deep()
 	for i in range(AutoLoad.grid.size()):
 		for j in range(AutoLoad.grid[i].size()):
 			var cTile = AutoLoad.grid[i][j]
 			if(type_string(typeof(cTile)) == "bool"):
 				if(cTile == false):
-					print("d")
-					for k in range(subIndex(AutoLoad.grid, j, i-1).size(),0,-1):
-						var ref = AutoLoad.grid[i - k][j]
+					var indicies = subIndex(AutoLoad.grid, j, i-1)
+					print(indicies)
+					for k in range(indicies.size()-1,-1,-1):
+						var ref = AutoLoad.grid[k][j]
 						if(type_string(typeof(ref)) == "bool"):
 							if(ref):
 								break
 							else:
 								pass
-						ref.move()
-						AutoLoad.grid = moveOneElement(AutoLoad.grid,[j,i - k],[0,-1])
-						var toprint = []
-						for p in range(AutoLoad.grid.size()):
-							toprint.append([])
-							for x in range(AutoLoad.grid[p].size()):
-								var refrence = AutoLoad.grid[p][x]
-								if(type_string(typeof(refrence)) == "Object"):
-									toprint[p].append(refrence.name())
-								else:
-									#toprint[p].append(type_string(typeof(refrence)))
-									toprint[p].append(refrence)
-						print(toprint)
+						else:
+							ref.move()
+							newGrid = moveOneElement(AutoLoad.grid,[j,i - k],[0,-1])
+	var toprint = []
+	for p in range(AutoLoad.grid.size()):
+				toprint.append([])
+				for x in range(AutoLoad.grid[p].size()):
+					var refrence = AutoLoad.grid[p][x]
+					if(type_string(typeof(refrence)) == "Object"):
+						toprint[p].append(refrence.name())
+					else:
+						#toprint[p].append(type_string(typeof(refrence)))
+						toprint[p].append(refrence)
+	print(toprint)
+	AutoLoad.grid = newGrid.duplicate_deep()
